@@ -23,29 +23,21 @@ public class LinkedList<T>
       //check if first and possible next node have to be deleted, if so set head to first node that isn't to be deleted
       while(head != null && head.data.equals(data))
       {
-        System.out.println("checkX");
         head = head.next;
       }
 
       currentNode = head;
 
-      System.out.println("check1");
-
       //while(currentNode.next != null)
       while(currentNode != null && currentNode.next != null) //also have to check if currentNode != null, because when checking currentNode.next if currentNode is null, there is a nullpointerexception
       {
-        System.out.println("check2");
         if(currentNode.next.next != null)
         {
-          System.out.println("check3");
           if(currentNode.next.data.equals(data))
           {
-            System.out.println("check5");
             tempNode = currentNode;
             while(tempNode.next != null && tempNode.next.data.equals(data))
             {
-              System.out.println("check6");
-              System.out.println("data: " + tempNode.data);
               tempNode = tempNode.next;
             }
             if(tempNode.next == null) currentNode.next = null;
@@ -56,14 +48,11 @@ public class LinkedList<T>
         {
           if(currentNode.next.data.equals(data))
           {
-            System.out.println("check4");
             currentNode.next = null;
           }
         }
-        //currentNode = currentNode.next;
 
       currentNode = currentNode.next;
-      //does it go to final node?
     }
   }
 
