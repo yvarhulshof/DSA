@@ -12,7 +12,7 @@ public class LinkedListExample {
         llist.push(4);
         llist.push(5);
 
-		    llist.delete(5);
+		    llist.delete(4);
 
         System.out.println("Count of nodes is " +
 							llist.getCount());
@@ -23,9 +23,9 @@ public class LinkedListExample {
 
 
               System.out.println(llist.get(0));
-              //System.out.println(llist.get(1));
-              //System.out.println(llist.get(2));
-              //System.out.println(llist.get(3));
+              System.out.println(llist.get(1));
+              System.out.println(llist.get(2));
+              System.out.println(llist.get(3));
               //System.out.println(llist.get(4));
               //System.out.println(llist.get(5));
               //System.out.println(llist.get(6));
