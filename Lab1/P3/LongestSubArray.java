@@ -6,11 +6,34 @@ public class LongestSubArray{
 
   public static void main(String[] args) {
 
-    int[] array = {2};
+    int[] array = {10,9,1,2,3,4,3,2};
   //  array = {10,9,1,2,3,4,2};
     System.out.println(find(array));
   }
 
+  public static ArrayList<Integer> find(int[] array){
+
+    ArrayList currentList = new ArrayList<Integer>();
+    ArrayList longestList = new ArrayList<Integer>();
+
+    for(int i = 1; i < array.length; i++){
+      currentList.add(i);
+      for(int j = i+1; j < array.length; j++){
+        if(array[j] > array[j-1]) currentList.add(array[j]);
+        else break;
+      }
+      if(currentList.size() > longestList.size()) longestList = new ArrayList<>(currentList);
+      currentList.clear();
+    }
+    //int[] longestSub = new int[longestList.size()];
+    //longestSub = longestList.toArray(longestSub);
+
+    return longestList;
+  }
+
+}
+
+/*
   public int[] find(int[] array){
     int currentStart;
     int currentEnd;
@@ -46,6 +69,7 @@ public class LongestSubArray{
     return maxInterval;
   }
 }
+*/
 /*
 Given an array, A, of n integers, find the longest subarray of A such that all the numbers in that subarray are in sorted order.
 Write this algorithm in Java and test it on at least three different arrays. What is the running time of your method?
