@@ -6,7 +6,7 @@ public class LongestSubArray{
 
   public static void main(String[] args) {
 
-    int[] array = {10,9,1,2,3,4,2};
+    int[] array = {2};
   //  array = {10,9,1,2,3,4,2};
     System.out.println(find(array));
   }
