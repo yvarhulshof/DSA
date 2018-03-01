@@ -2,36 +2,62 @@ import java.util.*;
 
 public class LongestSubArray{
 
-  //arraylist to track longest current sub array, clear if a new bigger one is found and reassign it.
+
+  //running time: n^2
 
   public static void main(String[] args) {
 
-    int[] array = {10,9,1,2,3,4,3,2};
-  //  array = {10,9,1,2,3,4,2};
-    System.out.println(find(array));
+    int[] array1 = {1,2,3,4,5,4,3,2,1,0,-1};
+    int[] array2 = {1,2,3,2,1};
+
+    System.out.println(findLongest(array1));
   }
 
-  public static ArrayList<Integer> find(int[] array){
+  public static ArrayList<Integer> findLongest(int[] array){
+    ArrayList<Integer> ascendingList = findAscending(array);
+    ArrayList<Integer> descendingList = findDescending(array);
+
+    if(ascendingList.size() > descendingList.size()) return ascendingList;
+    else return descendingList;
+  }
+
+  public static ArrayList<Integer> findAscending(int[] array){
 
     ArrayList currentList = new ArrayList<Integer>();
-    ArrayList longestList = new ArrayList<Integer>();
+    ArrayList longestAscending = new ArrayList<Integer>();
 
-    for(int i = 1; i < array.length; i++){
-      currentList.add(i);
+    for(int i = 0; i < array.length; i++){
+      currentList.add(array[i]);
       for(int j = i+1; j < array.length; j++){
-        if(array[j] > array[j-1]) currentList.add(array[j]);
+        if(array[j] >= array[j-1]) currentList.add(array[j]);
         else break;
       }
-      if(currentList.size() > longestList.size()) longestList = new ArrayList<>(currentList);
+      if(currentList.size() > longestAscending.size()) longestAscending = new ArrayList<>(currentList);
       currentList.clear();
     }
-    //int[] longestSub = new int[longestList.size()];
-    //longestSub = longestList.toArray(longestSub);
-
-    return longestList;
+    return longestAscending;
   }
 
+  public static ArrayList<Integer> findDescending(int[] array){
+
+    ArrayList currentList = new ArrayList<Integer>();
+    ArrayList longestDescending = new ArrayList<Integer>();
+
+    for(int i = 0; i < array.length; i++){
+      currentList.add(array[i]);
+      for(int j = i+1; j < array.length; j++){
+        if(array[j] <= array[j-1]) currentList.add(array[j]);
+        else break;
+      }
+      if(currentList.size() > longestDescending.size()) longestDescending = new ArrayList<>(currentList);
+      currentList.clear();
+    }
+    return longestDescending;
+  }
 }
+
+//int[] longestSub = new int[longestAscending.size()];
+//longestSub = longestAscending.toArray(longestSub);
 
 /*
   public int[] find(int[] array){

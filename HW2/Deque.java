@@ -1,32 +1,36 @@
-public class Deque<E> {
+public class Deque<T> {
 
-    private LinkedList list;
+    DoubleEndedQueue list;
 
     public Deque() {
-
+      list = new DoubleEndedQueue();
     }
 
     public boolean isEmpty() {
-        return first == null;
+        return list.head == null;
     }
 
     public int size() {
-        return size;
+        return list.getCount();
     }
 
-    public void addFirst(E data) {
-		// Implement this method
+    public void addFirst(T data) {
+  		list.push(data);
     }
 
-    public E removeFirst() {
-        // Implement this method
+    public T removeFirst() {
+        T data = (T)list.head.data;
+        list.head = list.head.next;
+        return data;
     }
 
-    public void addLast(E data) {
-        // Implement this method
+    public void addLast(T data) {
+      list.pushToTail(data);
     }
 
-    public E removeLast() {
-        // Implement this method
+    public T removeLast() {
+      T data = (T)list.getLast();
+      list.deleteTail();
+      return data;
     }
 }
