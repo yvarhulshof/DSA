@@ -24,5 +24,5 @@ Express, as a function of n, the asymptotic number of wand touches needed. Next,
 -if the we find an empty box, check the box before the current one:
 -if this one is filled, then the first 2(n-2) - 1 boxes are filled (so i is even), it takes i/2 + 2 wand touches
 -if this one is full, then the first 2(n-2) boxes are filled (so i is odd), it takes (i+1)/2 + 2 wand touches
--so the asymptotic number of wand touches needed is n
+-so the asymptotic number of wand touches needed is n but the algorithm runs in O(1)
 */

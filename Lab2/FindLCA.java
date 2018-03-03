@@ -1,30 +1,39 @@
+import java.util.*;
+
 public class FindLCA{
 
   public static void main(String[] args) {
-    Node<String> root = createTree();
-    System.out.println(find(node11,node12));
+    //Node<String> root = createTree();
+    Test1();
+    Test2();
+    Test3();
   }
 
 
 
-  public <T> Node<T> find(Node<T> x, Node<T> y){
-    Node<T> currentNode;
+  public static <T> T find(Node<T> x, Node<T> y){
+    Node<T> currentNode = x;
     List<Node<T>> currentChildren;
-    while(x.getParent() != null)
+    while(currentNode != null)
     {
-      currentChildren = x.getChildren();
+      currentChildren = currentNode.getChildren();
       for(Node<T> child : currentChildren)
       {
         if(y.getData() == child.getData()) //comparator neccesary?
         {
-          return currentNode;
+          return currentNode.getData();
         }
       }
-      currentNode = x.getParent();
+      currentNode = currentNode.getParent();
+      //if(currentNode.getData() != null)
+      //{
+        if(y.getData() == currentNode.getData()) return currentNode.getData();
+      //}
     }
+    return x.getRoot().getData();
   }
 
-  private static Node<String> createTree() {
+  private static void Test1() {
     Node<String> root = new Node<>("root");
 
     Node<String> node1 = root.addChild(new Node<String>("node 1"));
@@ -39,9 +48,60 @@ public class FindLCA{
 
     Node<String> node21 = node2.addChild(new Node<String>("node 21"));
     Node<String> node211 = node2.addChild(new Node<String>("node 22"));
-    return root;
+    System.out.println(find(node111, node2));
   }
 
+  private static void Test2() {
+    Node<String> root = new Node<>("root");
+
+    Node<String> node1 = root.addChild(new Node<String>("node 1"));
+
+    Node<String> node11 = node1.addChild(new Node<String>("node 11"));
+    Node<String> node111 = node11.addChild(new Node<String>("node 111"));
+    Node<String> node112 = node11.addChild(new Node<String>("node 112"));
+
+    Node<String> node12 = node1.addChild(new Node<String>("node 12"));
+
+    Node<String> node2 = root.addChild(new Node<String>("node 2"));
+
+    Node<String> node21 = node2.addChild(new Node<String>("node 21"));
+    Node<String> node211 = node2.addChild(new Node<String>("node 22"));
+
+    Node<String> node3 = root.addChild(new Node<String>("node 3"));
+
+    Node<String> node31 = node3.addChild(new Node<String>("node 31"));
+
+    Node<String> node311 = node31.addChild(new Node<String>("node 311"));
+
+
+    System.out.println(find(node311, node2));
+  }
+
+  private static void Test3() {
+    Node<String> root = new Node<>("root");
+
+    Node<String> node1 = root.addChild(new Node<String>("node 1"));
+
+    Node<String> node11 = node1.addChild(new Node<String>("node 11"));
+    Node<String> node111 = node11.addChild(new Node<String>("node 111"));
+    Node<String> node112 = node11.addChild(new Node<String>("node 112"));
+
+    Node<String> node12 = node1.addChild(new Node<String>("node 12"));
+
+    Node<String> node2 = root.addChild(new Node<String>("node 2"));
+
+    Node<String> node21 = node2.addChild(new Node<String>("node 21"));
+    Node<String> node211 = node21.addChild(new Node<String>("node 211"));
+
+    Node<String> node3 = root.addChild(new Node<String>("node 3"));
+
+    Node<String> node31 = node3.addChild(new Node<String>("node 31"));
+
+    Node<String> node311 = node31.addChild(new Node<String>("node 311"));
+
+
+    System.out.println(find(node2, node311));
+  }
 }
 
 
@@ -49,6 +109,16 @@ public class FindLCA{
 //we start at node x, go up to its parent and call getChildren on this parent, if y is in this list then the 1st parent
 //is the LCA, otherwise we go to the next parent and check again
 
+/*
+node 1
+  node 11
+      node 111
+      node 112
+  node 12
+node 2
+  node 21
+  node 22
+*/
 
 
 

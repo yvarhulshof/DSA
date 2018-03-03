@@ -2,18 +2,21 @@ public class QueueTest{
 
   public static void main(String[] args) {
 
-    Queue myQueue = new Queue(10);
 
-    myQueue.enqueue(1);
-    myQueue.enqueue(2);
-    myQueue.enqueue(3);
-    myQueue.enqueue(4);
-    myQueue.enqueue(5);
+    //Queue q = new Queue(10);
+    Queue2 q = new Queue2(20);
 
-    myQueue.dequeue();
-    myQueue.dequeue();
-    myQueue.dequeue();
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    q.enqueue(5);
+    q.enqueue(6);
 
-    myQueue.printElements();
+    //q.dequeue();
+    //q.dequeue();
+    //q.dequeue();
+
+    q.printElements();
   }
 }

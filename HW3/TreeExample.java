@@ -20,7 +20,7 @@ public class TreeExample {
 		Node<String> node2 = root.addChild(new Node<String>("node 2"));
 
 		Node<String> node21 = node2.addChild(new Node<String>("node 21"));
-		Node<String> node211 = node2.addChild(new Node<String>("node 22"));
+		Node<String> node211 = node21.addChild(new Node<String>("node 211"));
 		return root;
 	}
 

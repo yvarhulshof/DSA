@@ -18,6 +18,8 @@ public class StackImplementation<E> implements StackInterface<E>{
       return temp;
       }
     }
+    E temp = elements[SIZE];
+    elements[SIZE] = null;
     return elements[SIZE];
   }
 	public void push(E e){
