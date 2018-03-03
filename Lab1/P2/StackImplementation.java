@@ -47,7 +47,8 @@ public class StackImplementation<E> implements StackInterface<E>{
     {
       if(elements[i] == null)
       {
-      return elements[i-1];
+        if(i == 0) return null;
+        else return elements[i-1];
       }
     }
     return elements[SIZE];
@@ -72,4 +73,5 @@ public class StackImplementation<E> implements StackInterface<E>{
   public int getTotalSize(){
     return SIZE;
   }
+
 }

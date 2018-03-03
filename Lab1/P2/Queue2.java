@@ -1,4 +1,4 @@
-public class Queue2<E>{
+ public class Queue2<E>{
 
   private StackImplementation<E> stack;
   private StackImplementation<E> tempStack;
