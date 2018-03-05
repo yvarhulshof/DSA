@@ -37,6 +37,7 @@ public class Queue3<E>{
     {
       System.out.println(elements[i]);
     }
+    System.out.println("---");
   }
 
   //enqueue run time: n + 1 + n = 2n+1 -> O(n)

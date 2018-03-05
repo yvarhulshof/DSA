@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node<T> {
+public class Node<T> implements TreeADT<T>  {
 
 	private T data = null;
 
 	private List<Node<T>> children = new ArrayList<>();
 
 	private Node<T> parent = null;
+
+	private boolean visited = false;
 
 	public Node(T data) {
 		this.data = data;
@@ -26,15 +28,6 @@ public class Node<T> {
 	public Node<T> addChild(Node<T> child) {
 		this.children.add(child);
 		child.setParent(this); //set parent when adding a child
-
-		Node<T> temp = child.parent;
-
-		/*
-		while(temp.parent != null) //needed if "children" refers to the children of a node on all levels below it, not just the 1st level
-		{
-			temp.parent.addChild(child);
-		}
-		*/
     return child;
 	}
 
@@ -51,7 +44,6 @@ public class Node<T> {
 	}
 
 	public T getData() {
-		//if(data == null) return (T)" ";
 		return this.data;
 	}
 
@@ -59,7 +51,7 @@ public class Node<T> {
 		this.data = data;
 	}
 
-	private void setParent(Node<T> parent) {
+	public void setParent(Node<T> parent) {
 		this.parent = parent;
 	}
 
@@ -67,4 +59,11 @@ public class Node<T> {
 		return this.parent;
 	}
 
+	public void setVisited(){
+		visited = true;
+	}
+
+	public boolean getVisited(){
+		return visited;
+	}
 }
