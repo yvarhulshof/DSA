@@ -1,4 +1,7 @@
-public class Queue4<E>{
+public class Queue4<E> implements QueueInterface<E>{
+
+  //running time: enqueueing: O(1)
+  //              dequeueing: O(n), however if the dequeue stack is not empty it takes O(1) time.
 
   private StackImplementation<E> eStack;
   private StackImplementation<E> dStack;
@@ -40,4 +43,12 @@ public class Queue4<E>{
   public StackImplementation<E> getDStack(){
     return dStack;
   }
+  /*
+  Implement a queue using two stacks to store its elements, you may only use operations provided by the Stack ADT.
+  Write your own stack implementation.
+  What is the complexity of enqueue and dequeue operations?
+
+  Tip: use one stack for enqueues and one for dequeues.
+  */
+
 }

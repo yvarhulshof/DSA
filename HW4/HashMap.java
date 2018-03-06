@@ -1,11 +1,13 @@
-public class HashMap<E> {
+public class HashMap {
 
     private final static int TABLE_SIZE = 128;
 
-    HashEntry<E>[] table;
+    //HashEntry<LinkedList<E>>[] table;
+    LinkedList<HashEntry<E>>[] table;
 
     public HashMap() {
-        table = new HashEntry[TABLE_SIZE];
+        //table = new HashEntry[TABLE_SIZE];
+        table = new LinkedList<HashEntry<E>>[TABLE_SIZE];
         for (int i = 0; i < TABLE_SIZE; i++)
             table[i] = null;
     }
@@ -16,6 +18,14 @@ public class HashMap<E> {
         if (table[hash] == null)
             return null;
         else
+        {
+          Node<E> currentNode = table[hash].head;
+          while(currentNode.next != null)
+          {
+            if(currentNode.data.getKey() == key) return currentNode.data.getValue();
+            currentNode = currentNode.next;
+          }
+        }
             return table[hash].getValue();
     }
 
