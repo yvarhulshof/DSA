@@ -88,6 +88,18 @@ public class LinkedList<T>
       }
       return counter;
     }
+/*
+    public T find(int key)
+    {
+      Node<T> currentNode = head;
+      while(currentNode.next != null)
+      {
+        if(currentNode.data == value) return
+        currentNode = currentNode.next;
+      }
+      return
+    }
+  */
 }
 /*
 while(currentNode.next.data.equals(data))
