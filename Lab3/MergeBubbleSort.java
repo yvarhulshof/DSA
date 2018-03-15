@@ -4,6 +4,7 @@ public class MergeSort<E extends Comparable<E>> implements Comparator<E>{
 
   public ArrayList<E> mergeSort(ArrayList<E> inputList){
     if(inputList.size() <= 1) return inputList; //base case, if we have a list of size 0 or 1 it's sorted by definition so we return it
+    if(inputList.size() <= 20) return bubbleSort(inputList);
 
     ArrayList<E> list1 = new ArrayList<>();
     ArrayList<E> list2 = new ArrayList<>();
