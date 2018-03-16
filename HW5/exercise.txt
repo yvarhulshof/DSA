@@ -2,7 +2,7 @@
 
 --- You can use these classes for lab exercise 4 ---
 
-Start by examining the Grahp.java, Vertex.java and Edgee.java files.
+Start by examining the Graph.java, Vertex.java and Edge.java files.
 Try to comprehend how these classes can be used to construct a complete graph.
 
 1. Finish the methods in the Graph.java file
