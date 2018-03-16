@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.*;
 
 public class Graph {
     private final List<Vertex> vertexes;
@@ -46,8 +46,8 @@ public class Graph {
         // Returns all neighbours of a given vertex
         // TODO: Implement this method
         Vertex vX = null;
-        List<Edge> connectedEdges = null;
-        List<Vertex> neighbours = null;
+        List<Edge> connectedEdges = new ArrayList<Edge>();
+        List<Vertex> neighbours = new ArrayList<Vertex>();
 
         for(int i = 0; i < vertexes.size(); i++)
         {
@@ -57,9 +57,12 @@ public class Graph {
 
         for(int i = 0; i < edges.size(); i++)
         {
-          if(edges.get(i).getSource() == vX)
+          if(edges.get(i) != null && (edges.get(i).getSource() == vX)
             connectedEdges.add(edges.get(i));
         }
+
+        //we also need to find the edges for which vX is the destination
+
         for(int i = 0; i < connectedEdges.size(); i++)
         {
           neighbours.add(connectedEdges.get(i).getDestination());
