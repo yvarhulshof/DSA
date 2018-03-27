@@ -1,6 +1,7 @@
 public class Vertex {
     final private String id;
     final private String name;
+    private int distance;
 
 
     public Vertex(String id, String name) {
@@ -35,6 +36,10 @@ public class Vertex {
     @Override
     public String toString() {
         return name;
+    }
+
+    public void setDistance(int distance){
+      this.distance = distance;
     }
 
 }
