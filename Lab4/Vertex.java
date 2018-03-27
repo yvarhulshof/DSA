@@ -2,6 +2,7 @@ public class Vertex {
     final private String id;
     final private String name;
     private int distance;
+    private Vertex previous;
 
 
     public Vertex(String id, String name) {
@@ -40,6 +41,18 @@ public class Vertex {
 
     public void setDistance(int distance){
       this.distance = distance;
+    }
+
+    public int getDistance(){
+      return distance;
+    }
+
+    public void setPreviousVertex(Vertex previous){
+      this.previous = previous;
+    }
+
+    public Vertex getPreviousVertex(){
+      return previous;
     }
 
 }
