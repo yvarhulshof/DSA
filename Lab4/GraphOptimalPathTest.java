@@ -26,6 +26,7 @@ public class GraphOptimalPathTest{
   Edge e4A = new Edge("E04", v2 , v3, 3);
   Edge e4B = new Edge("E04", v3 , v2, 3);
 
+  //TODO set binary weights
   edges.addAll(Arrays.asList(e1A,e2A,e3A,e4A,e1B,e2B,e3B,e4B));
 
   Graph g = new Graph(vertices,edges);

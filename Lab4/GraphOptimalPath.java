@@ -40,7 +40,6 @@ public class GraphOptimalPath{
       minDistance = Integer.MAX_VALUE;
       unvisitedVertices.remove(currentVertexIndex);
 
-
       g.setVertexes(unvisitedVertices);
 
       for(Edge edge : edges)
