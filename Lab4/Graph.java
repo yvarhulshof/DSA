@@ -42,7 +42,6 @@ public class Graph {
           if(edges.get(i).getSource() == vY && edges.get(i).getDestination() == vX)
             return true;
         }
-
         return false;
     }
 
@@ -56,8 +55,10 @@ public class Graph {
         //find vertex belong to the string giving its ID
         for(int i = 0; i < vertexes.size(); i++)
         {
-          if(vertex == vertexes.get(i).getId())
+          //System.out.println("checkB");
+          if(vertex.equals(vertexes.get(i).getId())){
             vX = vertexes.get(i);
+          }
         }
 
         for(int i = 0; i < edges.size(); i++)

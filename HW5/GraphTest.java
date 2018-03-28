@@ -23,17 +23,22 @@ public class GraphTest{
 
   Graph g = new Graph(vertices,edges);
 
-
+  //print vertices
   for(int i = 0; i < g.getVertexes().size(); i++){
     System.out.println(g.getVertexes().get(i).toString());
   }
 
+  //print edges
   for(Edge edge : g.getEdges()){
     System.out.println(edge.toString());
   }
 
+  //check if adjecent
   System.out.println(g.adjacent("V02", "V04"));
 
+  System.out.println("v01s neighbours: " + g.getNeighbours("V01"));
+
+  //print each neighbour for each vertex
   for(Vertex vA : g.getVertexes())
   {
     for(Vertex vB : g.getNeighbours(vA.getId()))

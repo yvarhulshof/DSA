@@ -2,17 +2,17 @@ import java.util.*;
 
 public class GraphOptimalPath{
 
-  private List<Vertex> previousVertices;
+  //private List<Vertex> previousVertices;
   private List<Vertex> unvisitedVertices;
   private List<Edge> edges;
 
   public void updateDistances(Graph g, Vertex source){
 
+    //--
     //initialization
     Vertex currentVertex = source;
     int currentVertexIndex = 0;
-    //Vertex nextVertex = null;
-    //Vertex minVertex = null;
+
     int minDistance = Integer.MAX_VALUE;
     int alternativeDistance = Integer.MAX_VALUE;
 
@@ -23,8 +23,8 @@ public class GraphOptimalPath{
     {
       vertex.setDistance(Integer.MAX_VALUE);
     }
-    unvisitedVertices.get(0).setDistance(0);
-    //
+    source.setDistance(0);
+    //--
 
     while(unvisitedVertices.size() > 0)
     {
@@ -38,31 +38,24 @@ public class GraphOptimalPath{
         }
       }
       minDistance = Integer.MAX_VALUE;
-      unvisitedVertices.remove(currentVertexIndex);
-
-      g.setVertexes(unvisitedVertices);
 
       for(Edge edge : edges)
       {
-        System.out.println("check-1");
-        System.out.println(currentVertex.getId());
         for(Vertex vertex : g.getNeighbours(currentVertex.getId()))
-        //maybe currentVertex isn't connected to edges anymore?
         {
-          System.out.println("check0");
           if(edge.getSource() == currentVertex && edge.getDestination() == vertex)
           {
-            System.out.println("check1");
             alternativeDistance = currentVertex.getDistance() + edge.getWeight();
             if(alternativeDistance < vertex.getDistance())
             {
-              System.out.println("check2");
               vertex.setDistance(alternativeDistance);
               vertex.setPreviousVertex(currentVertex);
+              alternativeDistance = Integer.MAX_VALUE;
             }
           }
         }
       }
+      unvisitedVertices.remove(currentVertexIndex);
     }
   }
 
@@ -84,64 +77,12 @@ public class GraphOptimalPath{
       String result = "";
 
       for(String s : vertexPath){
-        result = result + s;
+        result = s + result;
       }
-
-      //String result = String.join(vertexPath, ", ");
 
       return result;
     }
 }
-  /*
-  public void updateDistances(Graph g, Vertex source){
-
-    initialize();
-
-    int minWeight;
-    Vertex currentVertex = source;
-    Vertex nextVertex = null;
-    Vertex minVertex = null;
-
-
-    //check for the vertex we're currently at what its edges are
-    for(Edge edge : edges)
-    {
-      for(Vertex vertex : g.getNeighbours(currentVertex.getId()))
-      {
-      if(edge.getSource() == currentVertex && edge.getDestination() == vertex)
-        currentEdges.add(edge);
-      }
-    }
-
-    //set initial min weight of the current edges to first found weight
-    minWeight = currentEdges.get(0).getWeight();
-
-    //update the distances for neighbour nodes, and store the node with the lowest distance
-    //find the min weight of the current edges
-    for(Edge edge : currentEdges)
-    {
-      nextVertex = edge.getDestination();
-      nextVertex.setDistance(edge.getWeight());
-      if(edge.getWeight() < minWeight)
-      {
-        minWeight = edge.getWeight();
-        minVertex = nextVertex;
-      }
-    }
-
-    currentVertex = minVertex;
-
-    /*
-    for(Edge edge : edges)
-    {
-      if(edge.getWeight() < minWeight){
-        minWeight = edge.getWeight();
-        nextVertex = edge.getDestination();
-      }
-    }
-    */
-
-
 
 /*
 Suppose that CONTROL, a secret U.S. government counterintelligence agency based in Washington, D.C.,

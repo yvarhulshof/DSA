@@ -38,7 +38,6 @@ public class Graph {
           if(edges.get(i).getSource() == vY && edges.get(i).getDestination() == vX)
             return true;
         }
-
         return false;
     }
 
